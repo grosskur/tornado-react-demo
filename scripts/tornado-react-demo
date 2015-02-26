@@ -1,0 +1,12 @@
+#!/usr/bin/env python2.7
+import sys
+
+import tornado_react_demo.app
+
+
+if __name__ == '__main__':
+    try:
+        tornado_react_demo.app.main(sys.argv[1:])
+    except KeyboardInterrupt:
+        print >> sys.stderr, 'tornado-react-demo: interrupted'
+        sys.exit(130)

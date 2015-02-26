@@ -1,0 +1,24 @@
+{
+  "name": "tornado-react-demo",
+  "version": "0.1.0",
+  "description": "Demo of React server rendering with Tornado",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grosskur/tornado-react-demo.git"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --port 8090",
+    "serve": "./node_modules/.bin/http-server -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Public Domain",
+  "devDependencies": {
+    "expose-loader": "^0.6.0",
+    "http-server": "^0.7.4",
+    "jsx-loader": "^0.12.2",
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0",
+    "webpack-stats-plugin": "0.0.3"
+  }
+}

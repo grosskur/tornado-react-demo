@@ -1,0 +1,11 @@
+*.bak*
+*.pyc
+.bak
+.envdir
+.envfile
+.longship.json
+.vagrant
+.venv
+tornado_react_demo/data
+tornado_react_demo/static
+node_modules/
