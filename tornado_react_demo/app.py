@@ -6,6 +6,7 @@ import logging
 import os
 import time
 
+import duktape
 import simplejson
 import tornado.ioloop
 import tornado.log
@@ -57,7 +58,13 @@ def main(args):
     env.require(parser, 'cookie_secret')
     with open(os.path.join(_DATA_PATH, 'manifest.json')) as f:
         manifest = simplejson.load(f)
-    params = {}
+    fname = os.path.join(_STATIC_PATH, 'js',
+                         manifest['assetsByChunkName']['server'])
+    ctx = duktape.DukContext()
+    ctx.eval_file(fname)
+    params = {
+        'ctx': ctx,
+    }
     handlers = [
         tornado.web.URLSpec(
             r'/',
