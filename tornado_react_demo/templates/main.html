@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <title>React demo</title>
-    <script src="/static/js/client.bundle.js"></script>
   </head>
   <body>
     {% raw hello %}
+    <script src="{{ static_url('js/' + settings['asset_env']['client'], include_version=False) %}"></script>
   </body>
 </html>

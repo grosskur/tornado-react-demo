@@ -8,7 +8,7 @@ module.exports = {
         client: './assets/js/client.jsx'
     },
     output: {
-        filename: '[name]-[hash].js',
+        filename: '[name]-[chunkhash].js',
         publicPath: 'http://localhost:8090/static',
         path: 'tornado_react_demo/static/js',
         libraryTarget: 'this'

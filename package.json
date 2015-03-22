@@ -20,5 +20,8 @@
     "webpack": "^1.5.3",
     "webpack-dev-server": "^1.7.0",
     "webpack-stats-plugin": "0.0.3"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
   }
 }

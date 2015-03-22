@@ -6,6 +6,7 @@ import logging
 import os
 import time
 
+import simplejson
 import tornado.ioloop
 import tornado.log
 import tornado.web
@@ -14,8 +15,10 @@ from .handlers import MainHandler
 
 
 _PROG = 'python-react-demo'
-_TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), 'templates')
+
+_DATA_PATH = os.path.join(os.path.dirname(__file__), 'data')
 _STATIC_PATH = os.path.join(os.path.dirname(__file__), 'static')
+_TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), 'templates')
 
 
 class ArgumentParser(argparse.ArgumentParser):
@@ -52,6 +55,8 @@ def main(args):
     env.add('DEBUG', False)
     env.add('PORT', 8000)
     env.require(parser, 'cookie_secret')
+    with open(os.path.join(_DATA_PATH, 'manifest.json')) as f:
+        manifest = simplejson.load(f)
     params = {}
     handlers = [
         tornado.web.URLSpec(
@@ -60,6 +65,7 @@ def main(args):
         ),
     ]
     settings = dict(
+        asset_env=manifest['assetsByChunkName'],
         autoescape='xhtml_escape',
         cookie_secret=env.get('cookie_secret'),
         debug=env.get('debug'),
